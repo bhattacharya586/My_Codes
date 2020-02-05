@@ -41,6 +41,7 @@ nodetype* insert(nodetype *root,int key){
             (root)->right = insert((root)->right,key);
         }
     }
+    return root;
 }
 void display(nodetype *root,int key){
     if (root == NULL) 
