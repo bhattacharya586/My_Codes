@@ -46,6 +46,7 @@ nodetype* insert(nodetype *root,int key){
             (root)->right = insert((root)->right,key);
         }
     }
+    return root;
 }
 nodetype* deleted(nodetype *root,int key){
     if(root==NULL)
