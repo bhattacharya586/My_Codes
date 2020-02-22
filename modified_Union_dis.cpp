@@ -31,12 +31,11 @@ void insertinlist(nodetype **head,int src,int dst,int weight){
         current->next = p;
     }
 }
-int find(int *parent_list,int a){
-    int t=a;
+int find(int *parent_list,int t){
     while(parent_list[t]!=t){
         t = parent_list[t];
     }
-    return parent_list[t];
+    return t;
 }
 int unionadd(int parent,int child,int *parent_list){
     int pp = find(parent_list,parent);
@@ -45,7 +44,7 @@ int unionadd(int parent,int child,int *parent_list){
         return -1;
     }
     else{
-        parent_list[child]=parent;
+        parent_list[pc]=pp;
         return 1;
     }
 }
@@ -100,6 +99,7 @@ int main()
     nodetype *temp = head;
     while(temp!=NULL){
         insertgraph(temp->src,temp->dst,source,parent_list);
+        
         temp=temp->next;
     }
     cout<<"Source Nodes\tEdge Nodes"<<endl;
